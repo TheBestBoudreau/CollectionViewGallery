@@ -103,41 +103,11 @@
                     <connections>
                         <outlet property="myCollectionView" destination="nwd-HA-NZG" id="AvT-Fe-Gvg"/>
                         <outlet property="segmentedControl" destination="CP4-hK-TMM" id="7XZ-g9-9bf"/>
-                        <segue destination="SXh-a5-2IC" kind="show" id="WAE-aZ-hXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
-        </scene>
-        <!--Detailed View Controller-->
-        <scene sceneID="aVV-qo-ES0">
-            <objects>
-                <viewController id="SXh-a5-2IC" customClass="DetailedViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0I6-48-wSv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3T-GC-fkJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="6rf-dC-lAH" firstAttribute="trailing" secondItem="p3T-GC-fkJ" secondAttribute="trailing" id="4d3-89-W0c"/>
-                            <constraint firstItem="p3T-GC-fkJ" firstAttribute="leading" secondItem="6rf-dC-lAH" secondAttribute="leading" id="Fbp-m9-R60"/>
-                            <constraint firstItem="p3T-GC-fkJ" firstAttribute="top" secondItem="6rf-dC-lAH" secondAttribute="top" id="JbL-9C-WXX"/>
-                            <constraint firstItem="p3T-GC-fkJ" firstAttribute="bottom" secondItem="6rf-dC-lAH" secondAttribute="bottom" id="YNr-FQ-ewt"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6rf-dC-lAH"/>
-                    </view>
-                    <connections>
-                        <outlet property="DetailedScrollView" destination="p3T-GC-fkJ" id="KX7-xE-xTq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGT-Fy-tES" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="476" y="1027"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0z6-kq-9zn">

@@ -9,14 +9,12 @@
 #import "ViewController.h"
 #import "CollectionViewCell.h"
 #import "MyHeaderViewCollectionReusableView.h"
-#import "Images.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-@property (readonly,nonatomic)NSMutableArray <UIImage *> *imageArray;
-@property (readonly,nonatomic)NSMutableArray <NSString *> *headersArr;
 @property (strong,nonatomic) UICollectionViewFlowLayout *defaultLayout;
 @property (strong,nonatomic) UICollectionViewFlowLayout *switchLayout;
+@property (strong,nonatomic) NSMutableArray *myBigArray;
 @end
 
 @implementation ViewController
@@ -30,32 +28,65 @@
     
     self.myCollectionView.collectionViewLayout=self.defaultLayout;
     
-    _headersArr = [[NSMutableArray alloc] initWithObjects:@"Cats", @"Pepe", @"Will Ferrell",@"Office", nil];
     
+    
+    NSMutableArray *catMembers= [[NSMutableArray alloc]initWithObjects:@"cat1",@"cat2",@"cat3", nil];
+    NSMutableDictionary *catDictionary =[[NSMutableDictionary alloc]initWithObjectsAndKeys:catMembers, @"members", @"Cats", @"title", nil];
+    
+    NSMutableArray *frogMembers = [[NSMutableArray alloc]initWithObjects:@"frog1",@"frog2",@"frog3", nil];
+    NSMutableDictionary *frogDictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:frogMembers,@"members", @"Pepe", @"title", nil];
+    
+    NSMutableArray *willMembers = [[NSMutableArray alloc]initWithObjects:@"will1",@"will2",@"will3", nil];
+    NSMutableDictionary *willDictionary = [[NSMutableDictionary alloc]initWithObjectsAndKeys:willMembers ,@"members", @"Will Ferrel", @"title", nil];
+    
+    NSMutableArray *officeMembers =[[NSMutableArray alloc] initWithObjects:@"office1",@"office2",@"office3", nil];
+    NSMutableDictionary *officeDictionary = [[NSMutableDictionary alloc]initWithObjectsAndKeys:officeMembers, @"members", @"Office", @"title", nil];
+    
+    self.myBigArray = [[NSMutableArray alloc] initWithObjects:officeDictionary,willDictionary,frogDictionary,catDictionary, nil];
 
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(self.myCollectionView.collectionViewLayout==self.defaultLayout){
-        return self.imageArray.count;
+    if (self.myCollectionView.collectionViewLayout == self.defaultLayout){
+        int total = 0;
+        for (NSDictionary *dictionary in self.myBigArray) {
+            NSArray * myArray = [dictionary objectForKey:@"members"];
+            total += myArray.count;
+      
+        }
+        return total;
         
-    }else if (self.myCollectionView.collectionViewLayout==self.switchLayout){
+        
+    }else if (self.myCollectionView.collectionViewLayout == self.switchLayout){
+       NSMutableDictionary *dict =[self.myBigArray objectAtIndex:section];
+        NSArray * myArray = [dict objectForKey:@"members"];
+        return myArray.count;
     }
-    return 2;
+    return 0;
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
 
     
-    
+
     CollectionViewCell *cell=[self.myCollectionView dequeueReusableCellWithReuseIdentifier:@"cell1"
-                                                                              forIndexPath:indexPath];
-    UIImage *images = [self.imageArray objectAtIndex: indexPath.row];
-    cell.myImagecell1.image=images;
+                                                                            forIndexPath:indexPath];
+    if(self.myCollectionView.collectionViewLayout==self.defaultLayout){
+    NSMutableArray *array = [NSMutableArray new];
+    for (NSDictionary *dictionary in self.myBigArray) {
+       [array addObjectsFromArray:[dictionary objectForKey:@"members"]];
+    }
+    cell.myImagecell1.image = [UIImage imageNamed:[array objectAtIndex:indexPath.row]];
+    
 
     return cell;
-
+    }else{
+        NSMutableDictionary *dict =[self.myBigArray objectAtIndex:indexPath.section];
+        NSArray * myArray = [dict objectForKey:@"members"];
+        cell.myImagecell1.image = [UIImage imageNamed:[myArray objectAtIndex:indexPath.row]];
+        return cell;
+    }
 }
 -(void)setupdefaultLayout{
     
@@ -74,7 +105,7 @@
 
 -(void)setupSwitchLayout{
     self.switchLayout = [[UICollectionViewFlowLayout alloc]init];
-    self.switchLayout.itemSize = CGSizeMake(100, 75);
+    self.switchLayout.itemSize = CGSizeMake(150, 150);
     self.switchLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
     self.switchLayout.minimumLineSpacing=5;
     self.switchLayout.minimumInteritemSpacing=5;
@@ -107,8 +138,17 @@
     MyHeaderViewCollectionReusableView *header = [self.myCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
 withReuseIdentifier:@"Myheader"forIndexPath:indexPath];
     
-    header.label.text = [self.headersArr objectAtIndex: indexPath.section];
+    
+    if(self.myCollectionView.collectionViewLayout == self.defaultLayout){
         
+    }else{
+        NSMutableDictionary *dict =[self.myBigArray objectAtIndex:indexPath.section];
+        header.label.text = [dict objectForKey:@"title"];
+        
+        
+    }
+//  header.label.text = [self.myBigArray objectAtIndex: indexPath.section];
+    
     return header;
     
     
@@ -119,31 +159,6 @@ withReuseIdentifier:@"Myheader"forIndexPath:indexPath];
     // Dispose of any resources that can be recreated.
 }
 
-
--(NSArray <UIImage *> *)imageArray{
-
-
-    
-    
-    
-    return @[
-             [UIImage imageNamed:@"cat1"],
-             [UIImage imageNamed:@"cat2"],
-             [UIImage imageNamed:@"cat3"],
-             [UIImage imageNamed:@"will1"],
-             [UIImage imageNamed:@"will2"],
-             [UIImage imageNamed:@"will3"],
-             [UIImage imageNamed:@"frog1"],
-             [UIImage imageNamed:@"frog2"],
-             [UIImage imageNamed:@"frog3"],
-             [UIImage imageNamed:@"office1"],
-             [UIImage imageNamed:@"office2"],
-             [UIImage imageNamed:@"office3"],
-
-             
-             
-             ];
-}
 
 
 
