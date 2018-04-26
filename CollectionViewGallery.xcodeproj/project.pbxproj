@@ -10,6 +10,8 @@
 		7E0530F92091103700304C17 /* MyHeaderViewCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0530F82091103700304C17 /* MyHeaderViewCollectionReusableView.m */; };
 		7E0530FC2091104500304C17 /* MyFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0530FB2091104500304C17 /* MyFooterCollectionReusableView.m */; };
 		7E0530FF2091120700304C17 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0530FE2091120700304C17 /* CollectionViewCell.m */; };
+		7E053102209135FE00304C17 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E053101209135FE00304C17 /* DetailedViewController.m */; };
+		7E053108209152F300304C17 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E053107209152F300304C17 /* Images.m */; };
 		7EF8E01A20910697003730E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E01920910697003730E9 /* AppDelegate.m */; };
 		7EF8E01D20910697003730E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8E01C20910697003730E9 /* ViewController.m */; };
 		7EF8E02020910697003730E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8E01E20910697003730E9 /* Main.storyboard */; };
@@ -44,6 +46,10 @@
 		7E0530FB2091104500304C17 /* MyFooterCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFooterCollectionReusableView.m; sourceTree = "<group>"; };
 		7E0530FD2091120700304C17 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		7E0530FE2091120700304C17 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		7E053100209135FE00304C17 /* DetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		7E053101209135FE00304C17 /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
+		7E053106209152F300304C17 /* Images.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
+		7E053107209152F300304C17 /* Images.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
 		7EF8E01520910697003730E9 /* CollectionViewGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF8E01820910697003730E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EF8E01920910697003730E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 				7EF8E01920910697003730E9 /* AppDelegate.m */,
 				7EF8E01B20910697003730E9 /* ViewController.h */,
 				7EF8E01C20910697003730E9 /* ViewController.m */,
+				7E053100209135FE00304C17 /* DetailedViewController.h */,
+				7E053106209152F300304C17 /* Images.h */,
+				7E053107209152F300304C17 /* Images.m */,
+				7E053101209135FE00304C17 /* DetailedViewController.m */,
 				7EF8E01E20910697003730E9 /* Main.storyboard */,
 				7E0530FD2091120700304C17 /* CollectionViewCell.h */,
 				7E0530FE2091120700304C17 /* CollectionViewCell.m */,
@@ -281,7 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E0530FF2091120700304C17 /* CollectionViewCell.m in Sources */,
+				7E053108209152F300304C17 /* Images.m in Sources */,
 				7EF8E01D20910697003730E9 /* ViewController.m in Sources */,
+				7E053102209135FE00304C17 /* DetailedViewController.m in Sources */,
 				7EF8E02820910697003730E9 /* main.m in Sources */,
 				7E0530FC2091104500304C17 /* MyFooterCollectionReusableView.m in Sources */,
 				7EF8E01A20910697003730E9 /* AppDelegate.m in Sources */,

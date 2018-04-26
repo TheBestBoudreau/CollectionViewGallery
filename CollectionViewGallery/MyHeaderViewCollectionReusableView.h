@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MyHeaderViewCollectionReusableView : UICollectionReusableView
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 
 @end
